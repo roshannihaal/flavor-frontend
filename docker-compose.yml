@@ -1,0 +1,12 @@
+version: "3.8"
+
+services:
+  frontend:
+    container_name: flavor-frontend
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - FL_BACKEND_URL=${BACKEND_URL}
+    ports:
+      - ${EXPOSE_PORT}:4200

@@ -11,23 +11,19 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@ngx-env/builder:browser",
           "options": {
             "outputPath": "dist/flavor_frontend",
             "index": "src/index.html",
             "main": "src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
+            "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.css"
-            ],
-            "scripts": []
+            "assets": ["src/favicon.ico", "src/assets"],
+            "styles": ["src/styles.css"],
+            "scripts": [],
+            "ngxEnv": {
+              "prefix": "FL_"
+            }
           },
           "configurations": {
             "production": {
@@ -51,13 +47,22 @@
               "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
-              "namedChunks": true
+              "namedChunks": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.development.ts"
+                }
+              ]
             }
           },
           "defaultConfiguration": "production"
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "host": "0.0.0.0"
+          },
+          "builder": "@ngx-env/builder:dev-server",
           "configurations": {
             "production": {
               "browserTarget": "flavor_frontend:build:production"
@@ -69,26 +74,18 @@
           "defaultConfiguration": "development"
         },
         "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "builder": "@ngx-env/builder:extract-i18n",
           "options": {
             "browserTarget": "flavor_frontend:build"
           }
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "@ngx-env/builder:karma",
           "options": {
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ],
+            "polyfills": ["zone.js", "zone.js/testing"],
             "tsConfig": "tsconfig.spec.json",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.css"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
+            "styles": ["src/styles.css"],
             "scripts": []
           }
         }
