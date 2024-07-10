@@ -1,0 +1,8 @@
+.the-image {
+    background-image: url('../../../assets/images/auth_wall.jpg');
+    background-size: cover;
+}
+
+.auth-content {
+    background-color: var(--primary-clr);
+}
