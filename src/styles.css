@@ -18,6 +18,19 @@
     --font-weight-bold: 900;
 
     --primary-clr: #217b71;
+
+    --text-clr: #bff0d6;
+}
+
+@font-face {
+    font-family: 'Raleway';
+    src: url('src/assets/fonts/Raleway/static/Raleway-Regular.ttf');
+}
+
+body {
+    font-size: 16px;
+    font-family: 'Raleway';
+    color: var(--text-clr);
 }
 
 .very-big {
@@ -48,4 +61,20 @@
 .tiny-text {
     font-size: var(--font-xs);
     font-weight: var(--font-weight-light);
+}
+
+.btnn {
+    color: var(--primary-clr);
+    background-color: var(--text-clr);
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+}
+
+.p-button.p-element {
+    margin-top: 0.5rem !important;
+}
+
+input {
+    color: var(--primary-clr);
+    padding-left: 0.5rem;
 }

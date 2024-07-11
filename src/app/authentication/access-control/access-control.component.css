@@ -1,6 +1,7 @@
 .the-image {
-    background-image: url('../../../assets/images/auth_wall.jpg');
+    background-image: url('src/assets/images/auth_wall.jpg');
     background-size: cover;
+    transform: scaleX(-1);
 }
 
 .auth-content {
