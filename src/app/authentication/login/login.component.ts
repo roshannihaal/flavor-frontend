@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CONSTANTS } from 'src/app/shared/constants';
@@ -41,10 +42,15 @@ export class LoginComponent implements OnInit {
     }
     onSubmit(): void {
         const body = this.form.value;
-        this.apiService
-            .login(body)
-            .subscribe((res: { message: string; data: { id: string; token: string } }) => {
+        this.apiService.login(body).subscribe(
+            (res: { message: string; data: { id: string; token: string } }) => {
                 sessionStorage.setItem('token', res.data.token);
-            });
+            },
+            (error: HttpErrorResponse) => {
+                if (error.status === CONSTANTS.FORBIDDEN) {
+                    console.log('TODO');
+                }
+            }
+        );
     }
 }
