@@ -1,6 +1,6 @@
 <div class="h-full flex justify-center">
     <form class="w-1/2 h-full flex flex-col gap-y-3 justify-center" [formGroup]="form">
-        <div class="h-1/2 flex flex-col gap-y-3 justify-end">
+        <div class="h-1/2 flex flex-col gap-y- justify-end">
             <div class="">
                 <div class="medium-text">Email</div>
                 <div class="">
@@ -10,6 +10,11 @@
                         [formControl]="form.get('email')"
                         class="w-full h-8" />
                 </div>
+                <div class="h-6">
+                    <ng-container *ngIf="validator('email')">
+                        <app-error [message]="validator('email')"></app-error>
+                    </ng-container>
+                </div>
             </div>
             <div class="">
                 <div class="medium-text">Password</div>
@@ -18,10 +23,19 @@
                         [formControl]="form.get('password')"
                         [toggleMask]="true"></p-password>
                 </div>
+                <div class="h-6">
+                    <ng-container *ngIf="validator('password')">
+                        <app-error [message]="validator('password')"></app-error>
+                    </ng-container>
+                </div>
             </div>
         </div>
         <div class="h-1/2">
-            <p-button label="Login" class="btnn" (click)="onSubmit()"></p-button>
+            <p-button
+                [disabled]="!form.valid"
+                label="Login"
+                class="btnn"
+                (click)="onSubmit()"></p-button>
         </div>
     </form>
 </div>
