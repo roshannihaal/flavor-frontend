@@ -21,7 +21,8 @@
                 <div class="">
                     <p-password
                         [formControl]="form.get('password')"
-                        [toggleMask]="true"></p-password>
+                        [toggleMask]="true"
+                        [feedback]="false"></p-password>
                 </div>
                 <div class="h-6">
                     <ng-container *ngIf="validator('password')">
