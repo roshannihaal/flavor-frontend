@@ -1,0 +1,21 @@
+<p-confirmDialog #cd [style]="{ width: '20vw', height: '40vh' }">
+    <ng-template pTemplate="header">
+        <div class="subtitle text-center">{{ contents.header }}</div>
+    </ng-template>
+    <ng-template pTemplate="icon">
+        <div #iconDiv class="">
+            <i class="{{ contents.icon.label }}"></i>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="message">
+        <div class="w-full medium-text text-center">
+            {{ contents.message }}
+        </div>
+    </ng-template>
+    <ng-template pTemplate="footer">
+        <div class="flex justify-center gap-x-3">
+            <p-button label="Yes" class="btnn" (click)="cd.accept()"></p-button>
+            <p-button label="No" class="btnn" (click)="cd.reject()"></p-button>
+        </div>
+    </ng-template>
+</p-confirmDialog>

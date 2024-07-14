@@ -20,6 +20,7 @@
     --primary-clr: #217b71;
     --text-clr: #bff0d6;
     --error-clr: #ff6b6b;
+    --warning-clr: #ffa726;
 }
 
 @font-face {
@@ -68,10 +69,6 @@ body {
     background-color: var(--text-clr);
     padding: 0.5rem 1rem;
     border-radius: 5px;
-}
-
-.p-button.p-element {
-    margin-top: 0.5rem !important;
 }
 
 input {

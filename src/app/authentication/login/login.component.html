@@ -31,11 +31,18 @@
             </div>
         </div>
         <div class="h-1/2">
-            <p-button
-                [disabled]="!form.valid"
-                label="Login"
-                class="btnn"
-                (click)="onSubmit()"></p-button>
+            <div class="mt-2">
+                <p-button
+                    [disabled]="!form.valid"
+                    label="Login"
+                    class="btnn"
+                    (click)="onSubmit()"></p-button>
+            </div>
         </div>
     </form>
 </div>
+<ng-container *ngIf="displayConfirmDialogBox">
+    <app-confirm-dialog
+        [contents]="confirmDialogContents"
+        (actionEvent)="dialogAction($event)"></app-confirm-dialog>
+</ng-container>
