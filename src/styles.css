@@ -81,3 +81,13 @@ input {
     background-size: cover;
     transform: scaleX(-1);
 }
+
+.p-password-input {
+    width: 100% !important;
+    height: 2rem;
+}
+
+.p-inputwrapper {
+    width: 100% !important;
+    height: 2rem;
+}
