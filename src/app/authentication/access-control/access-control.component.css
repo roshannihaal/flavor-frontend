@@ -1,9 +1,18 @@
-.the-image {
-    background-image: url('src/assets/images/auth_wall.jpg');
-    background-size: cover;
-    transform: scaleX(-1);
+.access-content {
+    background-color: var(--primary-clr);
 }
 
-.auth-content {
-    background-color: var(--primary-clr);
+.access {
+    border: solid 1px var(--text-clr);
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+.selected-access {
+    background-color: var(--text-clr);
+    color: var(--primary-clr);
+}
+
+.access-placeholder {
+    background-color: var(--text-clr);
 }

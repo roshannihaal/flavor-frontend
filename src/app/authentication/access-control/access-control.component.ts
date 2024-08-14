@@ -1,18 +1,33 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-
+import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AccountType } from 'src/app/shared/enums';
 @Component({
     selector: 'app-access-control',
     templateUrl: './access-control.component.html',
     styleUrls: ['./access-control.component.css'],
 })
-export class AccessControlComponent implements OnInit {
-    auth: string;
+export class AccessControlComponent {
+    public AccountType = AccountType;
 
-    constructor(private router: Router) {}
+    accountType: AccountType;
 
-    ngOnInit(): void {
-        const parts = this.router.url.split('/');
-        this.auth = parts[parts.length - 1];
+    constructor(
+        private router: Router,
+        private route: ActivatedRoute
+    ) {}
+
+    onSelectAccountType(type: AccountType): void {
+        this.accountType = type;
+    }
+
+    onLogin(): void {
+        this.router.navigate(['..', 'login'], { relativeTo: this.route });
+    }
+
+    onCreateAccount(): void {
+        this.router.navigate(['..', 'signup'], {
+            relativeTo: this.route,
+            queryParams: { type: this.accountType },
+        });
     }
 }
