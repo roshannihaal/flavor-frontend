@@ -1,1 +1,73 @@
-<p>signup works!</p>
+<div class="h-full flex justify-center">
+    <form class="w-1/2 h-full flex flex-col gap-y-3 justify-center" [formGroup]="form">
+        <div class="h-1/2 flex flex-col gap-y-3 justify-end">
+            <div class="flex flex-col gap-y-3" formGroupName="personalDetails">
+                <div class="">
+                    <div class="medium-text">Name</div>
+                    <div class="">
+                        <input type="text" pInputText formControlName="name" class="w-full h-8" />
+                    </div>
+                    <div class="h-6">
+                        <ng-container *ngIf="validator('name')">
+                            <app-error [message]="validator('name')"></app-error>
+                        </ng-container>
+                    </div>
+                </div>
+                <div class="">
+                    <div class="medium-text">Email</div>
+                    <div class="">
+                        <input type="text" pInputText formControlName="email" class="w-full h-8" />
+                    </div>
+                    <div class="h-6">
+                        <ng-container *ngIf="validator('email')">
+                            <app-error [message]="validator('email')"></app-error>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+            <div class="flex flex-col gap-y-3" formGroupName="passwords">
+                <div class="">
+                    <div class="medium-text">Password</div>
+                    <div class="">
+                        <p-password
+                            formControlName="password"
+                            [toggleMask]="true"
+                            [feedback]="false"></p-password>
+                    </div>
+                    <div class="h-6">
+                        <ng-container *ngIf="validator('password')">
+                            <app-error [message]="validator('password')"></app-error>
+                        </ng-container>
+                    </div>
+                </div>
+                <div class="">
+                    <div class="medium-text">Confirm Password</div>
+                    <div class="">
+                        <p-password
+                            formControlName="confirmPassword"
+                            [toggleMask]="true"
+                            [feedback]="false"></p-password>
+                    </div>
+                    <div class="h-6">
+                        <ng-container *ngIf="validator('confirmPassword')">
+                            <app-error [message]="validator('confirmPassword')"></app-error>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="h-1/2">
+            <div class="mt-2">
+                <p-button
+                    [disabled]="!form.valid"
+                    label="Signup"
+                    class="btnn"
+                    (click)="onSubmit()"></p-button>
+            </div>
+            <div class="flex mt-3" (click)="onLogin()">
+                Already have an account?&nbsp;
+                <div class="underline cursor-pointer">Login</div>
+            </div>
+        </div>
+    </form>
+</div>

@@ -4,11 +4,7 @@
             <div class="">
                 <div class="medium-text">Email</div>
                 <div class="">
-                    <input
-                        type="text"
-                        pInputText
-                        [formControl]="form.get('email')"
-                        class="w-full h-8" />
+                    <input type="text" pInputText formControlName="email" class="w-full h-8" />
                 </div>
                 <div class="h-6">
                     <ng-container *ngIf="validator('email')">
@@ -20,7 +16,7 @@
                 <div class="medium-text">Password</div>
                 <div class="">
                     <p-password
-                        [formControl]="form.get('password')"
+                        formControlName="password"
                         [toggleMask]="true"
                         [feedback]="false"></p-password>
                 </div>
@@ -38,6 +34,10 @@
                     label="Login"
                     class="btnn"
                     (click)="onSubmit()"></p-button>
+            </div>
+            <div class="flex mt-3" (click)="onSignup()">
+                Don't have an account?&nbsp;
+                <div class="underline cursor-pointer">Signup</div>
             </div>
         </div>
     </form>

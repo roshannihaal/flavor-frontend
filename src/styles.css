@@ -75,3 +75,19 @@ input {
     color: var(--primary-clr);
     padding-left: 0.5rem;
 }
+
+.the-image {
+    background-image: url('src/assets/images/auth_wall.jpg');
+    background-size: cover;
+    transform: scaleX(-1);
+}
+
+.p-password-input {
+    width: 100% !important;
+    height: 2rem;
+}
+
+.p-inputwrapper {
+    width: 100% !important;
+    height: 2rem;
+}

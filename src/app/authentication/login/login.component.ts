@@ -1,8 +1,9 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CONSTANTS } from 'src/app/shared/constants';
-import { IConfirmDialog } from 'src/app/shared/interface';
+import { IConfirmDialog, ILogin } from 'src/app/shared/interface';
 import { ApiService } from 'src/app/shared/service/api.service';
 
 @Component({
@@ -16,7 +17,11 @@ export class LoginComponent implements OnInit {
     displayConfirmDialogBox: boolean;
     warnColor: string;
 
-    constructor(private apiService: ApiService) {}
+    constructor(
+        private apiService: ApiService,
+        private router: Router,
+        private route: ActivatedRoute
+    ) {}
 
     ngOnInit(): void {
         this.warnColor = '#ffa726';
@@ -45,8 +50,11 @@ export class LoginComponent implements OnInit {
         }
         return null;
     }
+    onSignup(): void {
+        this.router.navigate(['..', 'get-started'], { relativeTo: this.route });
+    }
     onSubmit(): void {
-        const body = this.form.value;
+        const body: ILogin = this.form.value;
         this.apiService.login(body).subscribe(
             (res: { message: string; data: { id: string; token: string } }) => {
                 sessionStorage.setItem('token', res.data.token);
