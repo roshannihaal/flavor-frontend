@@ -8,8 +8,10 @@ import { InputTextModule } from 'primeng/inputtext';
 import { PasswordModule } from 'primeng/password';
 import { ButtonModule } from 'primeng/button';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { MenuBarComponent } from './menu-bar/menu-bar.component';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 @NgModule({
-    declarations: [ErrorComponent, ConfirmDialogComponent],
+    declarations: [ErrorComponent, ConfirmDialogComponent, MenuBarComponent],
     imports: [CommonModule, ConfirmDialogModule],
     exports: [
         FormsModule,
@@ -19,6 +21,8 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
         ButtonModule,
         ErrorComponent,
         ConfirmDialogComponent,
+        MenuBarComponent,
+        InfiniteScrollModule,
     ],
 })
 export class SharedModule {}

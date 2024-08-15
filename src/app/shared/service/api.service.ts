@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { API_ROUTE } from '../constants';
 import { Observable } from 'rxjs';
-import { ILogin } from '../interface';
+import { IGetRestaurantResponse, ILogin } from '../interface';
 import { ISignup } from '../interface/isignup';
 
 @Injectable({
@@ -27,5 +27,14 @@ export class ApiService {
             API_ROUTE.SIGNUP,
             body
         );
+    }
+
+    getRestaurants(skip: number, take: number): Observable<IGetRestaurantResponse> {
+        return this.http.get<IGetRestaurantResponse>(API_ROUTE.GET_RESTAURANTS, {
+            params: {
+                skip,
+                take,
+            },
+        });
     }
 }

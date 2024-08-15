@@ -1,0 +1,8 @@
+.menu-bar {
+    background-color: var(--text-clr);
+    border-right: 2px solid var(--warning-clr);
+}
+
+.content {
+    color: var(--primary-clr);
+}

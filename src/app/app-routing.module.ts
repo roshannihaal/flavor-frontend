@@ -12,6 +12,10 @@ const routes: Routes = [
         loadChildren: () =>
             import('./authentication/authentication.module').then(m => m.AuthenticationModule),
     },
+    {
+        path: 'home',
+        loadChildren: () => import('./workspace/workspace.module').then(m => m.WorkspaceModule),
+    },
 ];
 
 @NgModule({

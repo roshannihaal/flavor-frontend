@@ -71,6 +71,13 @@ body {
     border-radius: 5px;
 }
 
+.opp-btnn {
+    color: var(--text-clr);
+    background-color: var(--primary-clr);
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+}
+
 input {
     color: var(--primary-clr);
     padding-left: 0.5rem;

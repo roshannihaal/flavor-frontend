@@ -1,0 +1,5 @@
+.restaurant-card {
+    background-color: var(--text-clr);
+    border-radius: 5px;
+    color: var(--primary-clr);
+}

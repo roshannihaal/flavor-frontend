@@ -58,6 +58,7 @@ export class LoginComponent implements OnInit {
         this.apiService.login(body).subscribe(
             (res: { message: string; data: { id: string; token: string } }) => {
                 sessionStorage.setItem('token', res.data.token);
+                this.router.navigate(['home']);
             },
             (error: HttpErrorResponse) => {
                 if (error.status === CONSTANTS.FORBIDDEN) {
